@@ -3,10 +3,10 @@ FROM node:14.20.0 AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json /app/
 RUN npm install
 
-COPY . .
+COPY . /app
 RUN npm run build --prod
 
 # Stage 2: Serve the Angular app using nginx
